@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex justify-between">
+  <div class="h-screen p-6 flex justify-between bg-primary text-secondary">
     <Nuxt />
   </div>
 </template>
@@ -13,12 +13,9 @@ export default {};
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background-color: gray;
+  // background-color: $tertiary;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: green;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #28e78b;
+  // background-color: $secondary;
 }
 </style>

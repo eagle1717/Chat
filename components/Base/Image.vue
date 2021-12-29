@@ -19,11 +19,11 @@ export default {
   },
   methods: {
     loadURL() {
-      URL.value = () => import(`@/assets/images/${this.src}.svg`);
+      this.URL = () => import(`@/assets/images/${this.logo}.svg`);
     },
   },
   watch: {
-    src() {
+    logo() {
       this.loadURL();
     },
   },

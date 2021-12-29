@@ -1,16 +1,17 @@
 <template>
-  <aside v-if="dialogs" class="w-1/5 h-screen overflow-y-auto">
+  <aside v-if="dialogs" class="chats w-1/5 h-screen overflow-y-auto">
     <section
       v-for="dialog in filteredDialogs"
       :key="dialog.params.id"
       @click="viewDialog(dialog.params.id)"
+      class="chats__child"
     >
-      <h6>{{ dialog.title }}</h6>
-      <span>
+      <h6 class="chats__child__title">{{ dialog.title }}</h6>
+      <span class="chats__child__date">
         {{ $moment(dialog.updated_at).calendar() }}
       </span>
       <BaseImage :logo="dialog.status" />
-      <p>
+      <p class="chats__child__lastmessage">
         {{ dialog.last_message }}
       </p>
     </section>

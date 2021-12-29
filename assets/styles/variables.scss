@@ -1,0 +1,57 @@
+// variables for color themes
+
+// 5 themes
+// white
+// black
+// blue
+// purple
+// gray #585858
+
+$primary: #061329;
+$secondary: #ffffff;
+$tertiary: #acb7c4;
+$quaternary: #2cc97e;
+$quinary: #313756;
+$senary: #2a3f644d;
+
+.bg-primary {
+  background-color: $primary;
+}
+.text-primary {
+  color: $primary;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}
+.text-secondary {
+  color: $secondary;
+}
+
+.bg-tertiary {
+  background-color: $tertiary;
+}
+.text-tertiary {
+  color: $tertiary;
+}
+
+.bg-quaternary {
+  background-color: $quaternary;
+}
+.text-quaternary {
+  color: $quaternary;
+}
+
+.bg-quinary {
+  background-color: $quinary;
+}
+.text-quinary {
+  color: $quinary;
+}
+
+.bg-senary {
+  background-color: $senary;
+}
+.text-senary {
+  color: $senary;
+}

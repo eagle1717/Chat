@@ -18,9 +18,18 @@ export default {
 
   components: true,
 
+  css: ["~/assets/styles/variables.scss"],
+
   plugins: ["~plugins/fragment.js", "~plugins/moment.js"],
 
-  buildModules: ["@nuxtjs/tailwindcss"],
+  buildModules: [
+    "@nuxtjs/tailwindcss",
+    '@nuxtjs/style-resources',
+  ],
 
-  modules: ["@nuxtjs/axios"],
+  styleResources: {
+    scss: './assets/styles/*.scss'
+  },
+
+  modules: ["@nuxtjs/axios", "nuxt-svg-loader"],
 };
