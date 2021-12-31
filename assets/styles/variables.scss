@@ -1,12 +1,10 @@
 // variables for color themes
-
 // 5 themes
 // white
 // black
 // blue
 // purple
 // gray #585858
-
 $primary: #061329;
 $secondary: #ffffff;
 $tertiary: #acb7c4;
@@ -54,4 +52,8 @@ $senary: #2a3f644d;
 }
 .text-senary {
   color: $senary;
+}
+
+.h-max {
+  height: max-content;
 }

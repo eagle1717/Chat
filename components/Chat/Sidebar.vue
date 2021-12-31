@@ -3,8 +3,8 @@
     <section
       v-for="dialog in filteredDialogs"
       :key="dialog.params.id"
+      class="chats__child cursor-pointer"
       @click="viewDialog(dialog.params.id)"
-      class="chats__child"
     >
       <h6 class="chats__child__title">{{ dialog.title }}</h6>
       <span class="chats__child__date">

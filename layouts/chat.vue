@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen p-6 flex justify-between bg-primary text-secondary">
+  <div class="h-screen flex justify-between bg-primary text-secondary">
     <Nuxt />
   </div>
 </template>
@@ -8,14 +8,22 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  // background-color: $tertiary;
+  background-color: $quinary;
 }
 ::-webkit-scrollbar-thumb {
-  // background-color: $secondary;
+  background-color: $quaternary;
+}
+</style>
+
+<style lang="scss">
+.tooltip {
+  background-color: $secondary;
+  padding: 1px 2px;
+  font-size: 14px;
 }
 </style>

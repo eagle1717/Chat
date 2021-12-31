@@ -1,19 +1,19 @@
 <template>
-  <form @submit.prevent="enterToAccount" class="form">
-    <h1 class="form__title">Sign up/Log in.</h1>
+  <form @submit.prevent="enterToAccount" class="m-auto h-max">
+    <h1 class="form__title text-center">Sign up/Log in.</h1>
     <input
       type="text"
       placeholder="Your name:"
       v-model="uName"
-      class="form__input"
+      class="form__input block"
     />
     <input
       type="password"
       placeholder="Your password:"
       v-model="uPassword"
-      class="form__input"
+      class="form__input block"
     />
-    <button class="form__button">Next</button>
+    <button class="form__button bg-quaternary w-full">Next</button>
   </form>
 </template>
 

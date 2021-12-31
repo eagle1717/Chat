@@ -163,7 +163,7 @@ export default {
     commit("SET_DIALOG", [
       {
         id: 1,
-        text: "Отправьте фото",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         status: 1,
         type: 1,
         created_at: "2021-09-15 23:17:06",
@@ -171,7 +171,7 @@ export default {
           id: 1,
           firstname: "Роман",
           lastname: "Мишин",
-          avatar: ""
+          avatar: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
         },
         files: [],
       },
@@ -185,7 +185,7 @@ export default {
           id: 4,
           firstname: "Иван",
           lastname: "Иванов",
-          avatar: ""
+          avatar: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
         },
       },
       {
@@ -198,7 +198,7 @@ export default {
           id: 4,
           firstname: "Иван",
           lastname: "Иванов",
-          avatar: ""
+          avatar: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
         },
       },
       {
@@ -211,66 +211,10 @@ export default {
           id: 1,
           firstname: "Роман",
           lastname: "Мишин",
-          avatar: ""
+          avatar: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
         },
         files: [],
       },
     ]);
-  },
-  //
-  socketEmit(_, { action, payload }) {
-    return this._vm.$socket.emit(action, payload);
-  },
-  createMessage({ dispatch, state }, msg) {
-    const { user } = state;
-    const payload = {
-      msg,
-      id: user.id,
-    };
-
-    dispatch("socketEmit", {
-      action: "createMessage",
-      payload,
-    });
-  },
-  joinRoom({ dispatch, state }) {
-    const { user } = state;
-
-    dispatch("socketEmit", {
-      action: "joinRoom",
-      payload: user,
-    });
-  },
-  leftRoom({ commit, dispatch }) {
-    dispatch("socketEmit", {
-      action: "leftChat",
-      payload: null,
-    });
-
-    commit("clearData");
-  },
-  setTypingStatus({ dispatch, commit, state }, typingStatus) {
-    commit("setTypingStatus", typingStatus);
-    const { user } = state;
-    dispatch("socketEmit", {
-      action: "setTypingStatus",
-      payload: user,
-    });
-  },
-  async createUser({ commit, dispatch }, user) {
-    const { id } = await dispatch("socketEmit", {
-      action: "createUser",
-      payload: user,
-    });
-
-    commit("setUser", { id, ...user });
-  },
-  SOCKET_reconnect({ state, dispatch }) {
-    const { user } = state;
-    if (Object.values(user).length) {
-      const { id, ...userInfo } = user;
-      dispatch("createUser", userInfo);
-      dispatch("joinRoom");
-    }
   },
 };

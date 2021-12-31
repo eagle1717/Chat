@@ -18,18 +18,19 @@ export default {
 
   components: true,
 
-  css: ["~/assets/styles/variables.scss"],
+  css: ["~/assets/styles/variables.scss", "~/assets/styles/fonts.scss"],
 
-  plugins: ["~plugins/fragment.js", "~plugins/moment.js"],
-
-  buildModules: [
-    "@nuxtjs/tailwindcss",
-    '@nuxtjs/style-resources',
+  plugins: [
+    "~plugins/fragment.js",
+    "~plugins/moment.js",
+    "~plugins/tooltip.js",
   ],
 
+  buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/style-resources"],
+
   styleResources: {
-    scss: './assets/styles/*.scss'
+    scss: "./assets/styles/*.scss",
   },
 
-  modules: ["@nuxtjs/axios", "nuxt-svg-loader"],
+  modules: ["@nuxtjs/axios", "nuxt-svg-loader", '~/io'],
 };
