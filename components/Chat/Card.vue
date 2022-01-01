@@ -5,7 +5,7 @@
         class="chat__header__container flex justify-between items-center"
       >
         <div class="flex justify-between items-center">
-          <router-link
+          <!-- <router-link
             :to="{ name: 'chat' }"
             class="mr-1"
             v-tooltip="'Back to all chats'"
@@ -14,7 +14,7 @@
               logo="arrow-left"
               class="chat__header__arrow cursor-pointer"
             />
-          </router-link>
+          </router-link> -->
           <figure
             class="avatar mx-3"
             v-tooltip="{
@@ -51,7 +51,7 @@
     <section
       ref="content"
       :style="{
-        height: contentHeight,
+        height: `${contentHeight}px`,
       }"
       class="chat__content overflow-auto"
     >
@@ -142,7 +142,7 @@
         <label
           for="attach"
           v-tooltip="'Attach file'"
-          class="chat__footer__container__field__attach h-max bg-senary cursor-pointer ml-2.5"
+          class="chat__footer__container__field__attach h-auto bg-senary cursor-pointer ml-2.5"
         >
           <BaseImage logo="attach" />
         </label>
@@ -173,6 +173,9 @@ export default {
     },
   },
   watch: {
+    messages() {
+      this.scrollTo();
+    },
     message(val) {
       if (val.length > 0) {
         this.isTyping = true;
@@ -193,14 +196,12 @@ export default {
           document.body.clientHeight -
           this.$refs.header.clientHeight -
           this.$refs.footer.clientHeight
-        }px`;
+        }`;
       }
       this.scrollTo();
     },
     scrollTo() {
-      if (this.$refs.content) {
-        this.$refs.content.scrollTop = this.$refs.content.scrollHeight;
-      }
+      this.$refs.content.scrollTop = this.scrollHeight;
     },
     dateCondition(key) {
       return (
@@ -239,10 +240,10 @@ export default {
       });
     });
     this.getContentHeight();
+    window.addEventListener("resize", this.getContentHeight);
     this.$nextTick(() => {
       this.scrollTo();
     });
-    window.addEventListener("resize", this.getContentHeight);
     this.$refs.messageBar.addEventListener("keydown", (event) => {
       if ((event.keyCode == 10 || event.keyCode == 13) && event.ctrlKey) {
         this.sendMessage();
