@@ -4,13 +4,13 @@
     <input
       type="text"
       placeholder="Your name:"
-      v-model="uName"
+      v-model="username"
       class="form__input block"
     />
     <input
       type="password"
       placeholder="Your password:"
-      v-model="uPassword"
+      v-model="password"
       class="form__input block"
     />
     <button class="form__button bg-quaternary w-full">Next</button>
@@ -23,18 +23,18 @@ export default {
   layout: "chat",
   data() {
     return {
-      uName: "",
-      uPassword: null,
+      username: "",
+      password: null,
     };
   },
   methods: {
     ...mapMutations("auth", ["enter_to_account"]),
-    async enterToAccount() {
-      await this.enter_to_account({
-        uName: this.uName,
-        uPassword: this.uPassword,
+    enterToAccount() {
+      this.enter_to_account({
+        username: this.username,
+        password: this.password,
       });
-      this.$router.push("chat");
+      this.$router.push({ name: "chat" });
     },
   },
 };

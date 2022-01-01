@@ -1,5 +1,5 @@
 <template>
-  <main v-show="messages" class="chat w-full overflow-hidden">
+  <main class="chat w-full overflow-hidden">
     <section ref="header" class="chat__header bg-senary">
       <base-container
         class="chat__header__container flex justify-between items-center"
@@ -55,7 +55,7 @@
       }"
       class="chat__content overflow-auto"
     >
-      <base-container>
+      <base-container v-show="messages">
         <div v-for="(message, key) in messages" :key="message.id">
           <span
             v-if="dateCondition(key)"
@@ -183,7 +183,12 @@ export default {
   },
   methods: {
     getContentHeight() {
-      if (this.$refs.header && this.$refs.footer) {
+      if (
+        this.$refs.header &&
+        this.$refs.footer &&
+        this.$refs.header.clientHeight &&
+        this.$refs.footer.clientHeight
+      ) {
         this.contentHeight = ` ${
           document.body.clientHeight -
           this.$refs.header.clientHeight -
