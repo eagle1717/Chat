@@ -1,5 +1,8 @@
 export default {
   companion(state) {
-    return state.dialog.companion;
+    return state.companion;
+  },
+  user(state) {
+    return state.user;
   },
 };

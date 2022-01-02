@@ -15,11 +15,3 @@
   background-color: $quaternary;
 }
 </style>
-
-<style lang="scss">
-.tooltip {
-  background-color: $secondary;
-  padding: 1px 2px;
-  font-size: 14px;
-}
-</style>

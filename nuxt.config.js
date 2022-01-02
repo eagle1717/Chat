@@ -20,11 +20,7 @@ export default {
 
   css: ["~/assets/styles/variables.scss", "~/assets/styles/fonts.scss"],
 
-  plugins: [
-    "~plugins/fragment.js",
-    "~plugins/moment.js",
-    "~plugins/tooltip.js",
-  ],
+  plugins: ["~plugins/fragment.js", "~plugins/moment.js"],
 
   buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/style-resources"],
 
@@ -32,5 +28,5 @@ export default {
     scss: "./assets/styles/*.scss",
   },
 
-  modules: ["@nuxtjs/axios", "nuxt-svg-loader", '~/io'],
+  modules: ["@nuxtjs/axios", "nuxt-svg-loader", "~/io"],
 };

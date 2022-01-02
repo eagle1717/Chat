@@ -6,15 +6,12 @@ export default function () {
     const server = http.createServer(this.nuxt.renderer.app);
     const io = socketIO(server);
 
-    // overwrite nuxt.server.listen()
     this.nuxt.server.listen = (port, host) =>
       new Promise((resolve) =>
         server.listen(port || 3000, host || "localhost", resolve)
       );
-    // close this server on 'close' event
     this.nuxt.hook("close", () => new Promise(server.close));
 
-    // Add socket.io events
     const messages = [];
 
     io.on("connection", (socket) => {
@@ -34,7 +31,7 @@ export default function () {
           ...message,
           id: `conor-${message.id}`,
           type: 0,
-          text: `${message.text}.Conor`,
+          text: `${message.text}.McGregor`,
         };
         messages.push(message);
         messages.push(replied);
