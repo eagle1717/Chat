@@ -66,5 +66,10 @@ export default {
     prefetchLinks: false,
   },
 
-  modules: ["@nuxtjs/axios", "nuxt-svg-loader", "~/io"],
+  modules: [
+    "@nuxtjs/axios",
+    "nuxt-svg-loader",
+    "~/io",
+    "@nuxtjs/yandex-metrika",
+  ],
 };
