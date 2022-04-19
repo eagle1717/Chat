@@ -3,6 +3,7 @@ export default {
     title: "Business Chat",
     htmlAttrs: {
       lang: "en",
+      translate: "no",
     },
     meta: [
       { charset: "utf-8" },
@@ -18,6 +19,10 @@ export default {
 
   components: true,
 
+  build: {
+    extractCSS: true,
+  },
+
   css: ["~/assets/styles/variables.scss", "~/assets/styles/fonts.scss"],
 
   plugins: ["~plugins/fragment.js", "~plugins/moment.js"],
@@ -26,6 +31,39 @@ export default {
 
   styleResources: {
     scss: "./assets/styles/*.scss",
+  },
+
+  publicRuntimeConfig: {
+    yandexMetrika: {
+      id: 88441210,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+    },
+  },
+
+  loaders: {
+    cssModules: {
+      modules: {
+        localIdentName: "[hash:base64:6]",
+      },
+    },
+  },
+
+  router: {
+    extendRoutes(routes) {
+      for (const route of routes) {
+        if (route.path == "/") {
+          route.name = "Home";
+        }
+      }
+      return routes;
+    },
+    scrollBehavior(to, from, savedPosition) {
+      return { x: 0, y: 0 };
+    },
+    prefetchLinks: false,
   },
 
   modules: ["@nuxtjs/axios", "nuxt-svg-loader", "~/io"],
