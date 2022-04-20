@@ -29,6 +29,13 @@ export default {
 
   buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/style-resources"],
 
+  modules: [
+    "@nuxtjs/axios",
+    "nuxt-svg-loader",
+    "~/io",
+    "@nuxtjs/yandex-metrika",
+  ],
+
   styleResources: {
     scss: "./assets/styles/*.scss",
   },
@@ -65,11 +72,4 @@ export default {
     },
     prefetchLinks: false,
   },
-
-  modules: [
-    "@nuxtjs/axios",
-    "nuxt-svg-loader",
-    "~/io",
-    "@nuxtjs/yandex-metrika",
-  ],
 };
